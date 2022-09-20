@@ -41,18 +41,15 @@ class LinkedList {
         while (current.next) {
             current = current.next
         }
-
         return current
     }
 
     at(index) {
         if (index < 0 || index >= this.length) return null
-
         let current = this.head
         for (let i = 0; i < index; i++) {
             current = current.next
         }
-
         return current
     }
 
@@ -68,7 +65,6 @@ class LinkedList {
             if (current.value === value) return true
             current = current.next
         }
-
         return false
     }
 
@@ -78,7 +74,6 @@ class LinkedList {
             if (current.value === value) return i
             current = current.next
         }
-
         return null
     }
 
@@ -93,17 +88,12 @@ class LinkedList {
     }
 }
 
+// Helper function for creating linked lists from given values
 LinkedList.from = function(...values) {
     const list = new LinkedList()
     for (let i = values.length - 1; i >= 0; i--) {
         list.prepend(values[i])
         this.length++
     }
-
     return list
 }
-
-const test = LinkedList.from(10, 20, 30, 40, 50)
-test.toString()
-test.append(60)
-test.toString()
