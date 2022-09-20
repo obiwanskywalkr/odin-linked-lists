@@ -1,4 +1,12 @@
 #!/usr/bin/env node
+
+class Node {
+    constructor(value, next) {
+       this.value = value
+       this.next = next 
+    }
+}
+
 class LinkedList {
     constructor() {
         this.head = null
@@ -21,12 +29,10 @@ class LinkedList {
     }
 
     getSize() {
-        console.log(`size: ${this.length}`)
         return this.length
     }
 
     getHead() {
-        console.log(`head: ${this.head.value}`)
         return this.head
     }
 
@@ -36,7 +42,6 @@ class LinkedList {
             current = current.next
         }
 
-        console.log(`tail: ${current.value}`)
         return current
     }
 
@@ -51,6 +56,12 @@ class LinkedList {
         return current
     }
 
+    pop() {
+        const newTail = this.at(this.length - 2)
+        newTail.next = newTail.next.next
+        this.length--
+    }
+
     toString() {
         let output = ''
         let current = this.head
@@ -62,16 +73,17 @@ class LinkedList {
     }
 }
 
-class Node {
-    constructor(value, next) {
-       this.value = value
-       this.next = next 
+LinkedList.from = function(...values) {
+    const list = new LinkedList()
+    for (let i = values.length - 1; i >= 0; i--) {
+        list.prepend(values[i])
+        this.length++
     }
+
+    return list
 }
 
-const test = new LinkedList()
-test.prepend(10)
-test.append(20)
-test.append(30)
-test.append(40)
+const test = LinkedList.from(10, 20, 30, 40, 50)
+test.toString()
+test.append(60)
 test.toString()
