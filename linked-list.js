@@ -20,6 +20,26 @@ class LinkedList {
         this.length++
     }
 
+    getSize() {
+        console.log(`size: ${this.length}`)
+        return this.length
+    }
+
+    getHead() {
+        console.log(`head: ${this.head.value}`)
+        return this.head
+    }
+
+    getTail() {
+        let current = this.head
+        while (current.next) {
+            current = current.next
+        }
+
+        console.log(`tail: ${current.value}`)
+        return current
+    }
+
     toString() {
         let output = ''
         let current = this.head
