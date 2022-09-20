@@ -20,7 +20,6 @@ class LinkedList {
         this.length++
     }
 
-
     toString() {
         let output = ''
         let current = this.head
