@@ -62,6 +62,26 @@ class LinkedList {
         this.length--
     }
 
+    contains(value) {
+        let current = this.head
+        while (current) {
+            if (current.value === value) return true
+            current = current.next
+        }
+
+        return false
+    }
+
+    find(value) {
+        let current = this.head
+        for (let i = 0; i < this.length; i++) {
+            if (current.value === value) return i
+            current = current.next
+        }
+
+        return null
+    }
+
     toString() {
         let output = ''
         let current = this.head
